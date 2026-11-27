@@ -1,0 +1,78 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>마음의 온도 | 스트레스 자가점검</title>
+<style>
+:root{--bg:#f3f6fa;--card:#fff;--line:#e3e9f0;--text:#263449;--muted:#718096;--main:#477fbd;--deep:#172b4a;--soft:#edf5fd;--track:#e9eef4;--navbg:rgba(255,255,255,.92);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1724;--card:#182233;--line:#2a374d;--text:#e4ebf5;--muted:#9aa9bd;--main:#6aa3e0;--soft:#1f3350;--track:#26344a;--navbg:rgba(24,34,51,.92)}}
+:root[data-theme="dark"]{--bg:#0f1724;--card:#182233;--line:#2a374d;--text:#e4ebf5;--muted:#9aa9bd;--main:#6aa3e0;--soft:#1f3350;--track:#26344a;--navbg:rgba(24,34,51,.92)}
+*,*::before,*::after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Apple SD Gothic Neo","Noto Sans KR",Arial,sans-serif;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navbg);z-index:10}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--navbg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav div{max-width:960px;margin:auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center}
+nav b{font-size:18px}nav a{color:var(--text);text-decoration:none;font-size:14px;margin-left:18px}nav a:hover{color:var(--main)}
+main{max-width:960px;margin:auto;padding:0 16px 50px}section{margin:0}
+.hero{background:linear-gradient(135deg,#172b4a,#477fbd);color:#fff;border-radius:26px;padding:64px 36px;margin-top:20px;text-align:center}
+.hero small{letter-spacing:3px;color:#d4e5f7}.hero h1{font-size:clamp(38px,8vw,64px);margin:10px 0}.hero p{color:#e4eef9;font-size:clamp(15px,2.4vw,19px);margin:0 auto 26px;max-width:560px}
+.cta{display:inline-block;background:#fff;color:#172b4a;font-weight:bold;padding:15px 32px;border-radius:40px;text-decoration:none;font-size:17px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 10px;text-align:center}.stat b{display:block;font-size:30px;color:var(--main)}.stat span{font-size:13px;color:var(--muted)}
+h2.title{font-size:clamp(24px,4vw,32px);text-align:center;margin:56px 0 8px}p.sub{text-align:center;color:var(--muted);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}.card .ic{font-size:30px}.card h3{margin:8px 0 4px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:16px 0}.muted{color:var(--muted);font-size:14px}
+.progressline{display:flex;justify-content:space-between;font-size:13px;font-weight:bold;margin:12px 0 7px}.track{height:9px;background:var(--track);border-radius:20px;overflow:hidden}.bar{height:100%;width:0;background:var(--main);transition:width .4s}
+.question{padding:20px 0;border-bottom:1px solid var(--line)}.question h3{font-size:16px;display:flex;gap:10px;margin:0 0 14px}.question h3 b{background:var(--soft);color:var(--main);border-radius:8px;padding:2px 9px;font-size:12px;white-space:nowrap;height:fit-content}
+.choices{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.choices label{cursor:pointer}.choices input{position:absolute;opacity:0}.choices span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:58px;padding:8px 5px;border:1px solid var(--line);border-radius:11px;font-size:12px;color:var(--muted)}.choices input:checked+span{border:2px solid var(--main);background:var(--soft);color:var(--main);font-weight:bold}.choices input:focus-visible+span{outline:2px solid var(--main)}
+button{width:100%;padding:15px;border:0;border-radius:12px;background:var(--main);color:#fff;font-size:16px;font-weight:bold;cursor:pointer;margin-top:20px}button.secondary{background:var(--card);color:var(--main);border:1px solid var(--line)}
+#result{display:none}#result.show{display:block}.score{text-align:center;font-size:60px;color:var(--main);font-weight:bold;margin:8px}.level{text-align:center;font-size:22px;font-weight:bold;margin-bottom:12px}#description{color:var(--muted)}
+.tips{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+#help{display:none;background:rgba(220,80,70,.1);border:1px solid rgba(220,80,70,.35);border-radius:14px;padding:18px;margin:18px 0}#help.show{display:block}#help h3{margin:0 0 6px;font-size:17px}#help p{margin:0 0 12px;font-size:14px;color:var(--text)}.call{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:8px;text-decoration:none;color:var(--text)}.call span{font-size:13px;color:var(--muted)}.call b{font-size:20px;color:var(--main);white-space:nowrap}
+sup{color:var(--main);font-size:11px;font-weight:bold}.refs{padding-left:24px;margin:0}.refs li{margin:0 0 16px;font-size:14px}.refs a{color:var(--main);word-break:break-all;font-size:13px}.refs small{display:block;color:var(--muted);margin-top:3px;font-size:13px}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:50px;padding:0 10px}
+@media(max-width:700px){.hero{padding:44px 20px}.grid,.tips{grid-template-columns:1fr 1fr}.choices{grid-template-columns:repeat(2,1fr)}.choices label:last-child{grid-column:span 2}.choices span{min-height:48px;font-size:13px}nav a{margin-left:12px;font-size:13px}.panel{padding:17px 14px}}
+@media(max-width:480px){.grid,.tips{grid-template-columns:1fr}}
+</style></head><body>
+<nav><div><b>🌡️ 마음의 온도</b><span><a href="#intro">소개</a><a href="#test">자가점검</a><a href="#tips">관리 팁</a><a href="#refs">참고문헌</a></span></div></nav>
+<main>
+<section class="hero"><small>MIND TEMPERATURE · SELF CHECK</small><h1>마음의 온도</h1><p>요즘 내 마음은 얼마나 지쳐 있을까요?<br>3분이면 충분해요. 최근 2주간의 나를 가볍게 점검해 보세요.</p><a class="cta" href="#test">검사 시작하기</a></section>
+<div class="stats"><div class="stat"><b>10</b><span>문항</span></div><div class="stat"><b>3분</b><span>소요 시간</span></div><div class="stat"><b>익명</b><span>브라우저에서만 처리</span></div></div>
+
+<section id="intro"><h2 class="title">이렇게 진행돼요</h2><p class="sub">복잡한 가입 없이, 세 단계로 끝납니다.</p>
+<div class="grid"><div class="card"><div class="ic">📝</div><h3>1. 문항에 답하기</h3><p>최근 2주간의 경험을 5단계로 선택합니다.</p></div><div class="card"><div class="ic">📊</div><h3>2. 점수 확인</h3><p>0~40점으로 현재 스트레스 수준을 확인합니다.</p></div><div class="card"><div class="ic">🌿</div><h3>3. 관리 팁 얻기</h3><p>결과에 맞는 마음 돌봄 방법을 안내받습니다.</p></div></div></section>
+
+<section id="test"><h2 class="title">스트레스 자가점검</h2><p class="sub">각 문항을 읽고 최근 2주 동안 얼마나 자주 해당했는지 선택해 주세요.</p>
+<div class="panel"><div class="progressline"><span>검사 진행률</span><span id="progressText">0 / 10개 완료</span></div><div class="track"><div class="bar" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div><p id="progressHint" class="muted" style="margin:8px 0 0">문항을 선택할 때마다 진행률이 바로 업데이트됩니다.</p></div>
+<form class="panel" id="testForm"><button id="submitBtn" type="button">검사 결과 확인하기</button></form>
+<section class="panel" id="result"><h2 style="text-align:center;margin-top:0">나의 스트레스 검사 결과</h2><div class="score"><span id="score">0</span><small style="font-size:16px;color:var(--muted)"> / 40점</small></div><div class="level" id="level"></div><div class="track"><div class="bar" id="resultBar"></div></div><p id="description"></p><p class="muted">0–10점 낮은 편 · 11–20점 보통 · 21–30점 높은 편 · 31–40점 매우 높은 편</p><div id="help"><h3>💙 혼자 견디지 않아도 괜찮아요</h3><p>지금 많이 힘드시다면 아래 번호로 24시간 전문 상담을 받을 수 있어요.</p><a class="call" href="tel:109"><span>자살예방 상담전화<br>24시간</span><b>☎ 109</b></a><a class="call" href="tel:1577-0199"><span>정신건강 위기상담전화<br>24시간</span><b>☎ 1577-0199</b></a><a class="call" href="tel:1388"><span>청소년 상담전화<br>청소년 및 보호자</span><b>☎ 1388</b></a></div><button type="button" class="secondary" id="retry">다시 검사하기</button></section></section>
+
+<section id="tips"><h2 class="title">마음 돌봄 팁</h2><p class="sub">오늘 바로 해볼 수 있는 작은 습관들이에요.</p>
+<div class="tips"><div class="card"><div class="ic">😮‍💨</div><h3>호흡하기</h3><p>4초 들이쉬고 6초 내쉬기를 5회 반복해 보세요. 느린 호흡은 긴장 완화와 관련돼요.<sup>[4]</sup></p></div><div class="card"><div class="ic">🚶</div><h3>가볍게 걷기</h3><p>규칙적인 신체활동은 불안·우울을 줄이는 데 도움이 돼요. 가볍게 걷는 것부터 시작해 보세요.<sup>[5]</sup></p></div><div class="card"><div class="ic">😴</div><h3>수면 리듬</h3><p>스트레스는 수면을 방해할 수 있어요. 취침·기상 시간을 일정하게 유지해 보세요.<sup>[6]</sup></p></div><div class="card"><div class="ic">💬</div><h3>이야기 나누기</h3><p>믿을 만한 사람에게 마음을 털어놓아 보세요. 사회적 지지는 스트레스의 영향을 줄여줄 수 있어요.<sup>[7]</sup></p></div></div></section>
+<section id="refs"><h2 class="title">참고문헌</h2><p class="sub">스트레스 측정과 관리에 관한 배경 자료예요. (링크 확인일: 2026.11.27)</p>
+<div class="panel"><ol class="refs">
+<li>Cohen, S., Kamarck, T., &amp; Mermelstein, R. (1983). A global measure of perceived stress. <i>Journal of Health and Social Behavior, 24</i>(4), 385–396.<br><a href="https://doi.org/10.2307/2136404" target="_blank" rel="noopener">https://doi.org/10.2307/2136404</a><small>지각된 스트레스 척도(PSS)를 개발한 원 논문</small></li>
+<li>이종하, 신철민, 고영훈, 임재형, 조숙행, 김승현, 정인과, 한창수 (2012). 한글판 스트레스 자각척도의 신뢰도와 타당도 연구. <i>정신신체의학, 20</i>(2), 127–134.<br><a href="https://koreascience.kr/article/JAKO201208138128849.page" target="_blank" rel="noopener">https://koreascience.kr/article/JAKO201208138128849.page</a><small>PSS 한국어판을 병원 근로자 154명을 대상으로 검증한 연구</small></li>
+<li>Goyal, M., Singh, S., Sibinga, E. M. S., et al. (2014). Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. <i>JAMA Internal Medicine, 174</i>(3), 357–368.<br><a href="https://pubmed.ncbi.nlm.nih.gov/24395196/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/24395196/</a><small>명상 프로그램이 불안·우울 등 심리적 스트레스의 부정적 측면을 소~중간 정도 줄일 수 있다는 메타분석</small></li>
+<li>Zaccaro, A., Piarulli, A., Laurino, M., Garbella, E., Menicucci, D., Neri, B., &amp; Gemignani, A. (2018). How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. <i>Frontiers in Human Neuroscience, 12</i>, 353.<br><a href="https://doi.org/10.3389/fnhum.2018.00353" target="_blank" rel="noopener">https://doi.org/10.3389/fnhum.2018.00353</a><small>느린 호흡(분당 10회 미만)의 심리·생리적 효과를 정리한 체계적 문헌고찰</small></li>
+<li>Rebar, A. L., Stanton, R., Geard, D., Short, C., Duncan, M. J., &amp; Vandelanotte, C. (2015). A meta-meta-analysis of the effect of physical activity on depression and anxiety in non-clinical adult populations. <i>Health Psychology Review, 9</i>(3), 366–378.<br><a href="https://doi.org/10.1080/17437199.2015.1022901" target="_blank" rel="noopener">https://doi.org/10.1080/17437199.2015.1022901</a><small>신체활동이 일반 성인의 우울과 불안을 줄인다는 근거를 종합한 연구</small></li>
+<li>Kim, E.-J., &amp; Dimsdale, J. E. (2007). The effect of psychosocial stress on sleep: A review of polysomnographic evidence. <i>Behavioral Sleep Medicine, 5</i>(4), 256–278.<br><a href="https://pubmed.ncbi.nlm.nih.gov/17937582/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/17937582/</a><small>심리사회적 스트레스와 수면의 관계를 다룬 체계적 문헌고찰</small></li>
+<li>Cohen, S., &amp; Wills, T. A. (1985). Stress, social support, and the buffering hypothesis. <i>Psychological Bulletin, 98</i>(2), 310–357.<br><a href="https://pubmed.ncbi.nlm.nih.gov/3901065/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/3901065/</a><small>사회적 지지와 스트레스·건강의 관계를 검토한 리뷰</small></li>
+<li>보건복지부. 정신건강 위기상담전화(1577-0199) 운영.<br><a href="https://www.mohw.go.kr/menu.es?mid=a10706040100" target="_blank" rel="noopener">https://www.mohw.go.kr/menu.es?mid=a10706040100</a><small>결과 화면의 도움 전화 안내 관련 공식 정보</small></li>
+</ol></div>
+<p class="muted" style="text-align:center">※ 위 자료는 스트레스 측정·관리에 관한 배경 근거예요. 이 페이지의 10문항은 표준화된 척도가 아니므로, 점수를 PSS 등 공식 척도 점수와 직접 비교할 수 없습니다.</p></section>
+</main>
+<footer><p>※ 이 검사는 일상적인 자기점검을 위한 비공식 검사이며, 임상적으로 표준화된 진단 도구가 아닙니다. 응답은 이 브라우저 안에서만 처리됩니다. 스트레스가 오래 지속되거나 일상에 큰 영향을 준다면 전문가와 상담해 보세요.</p><p>© 마음의 온도</p></footer>
+<script>
+const Q=["최근 사소한 일에도 스트레스를 크게 느꼈다.","내가 해야 할 일이나 책임이 감당하기 어렵게 느껴졌다.","예상하지 못한 일이 생기면 쉽게 당황하거나 불안해졌다.","마음이 긴장되어 편안하게 쉬기 어려웠다.","평소보다 짜증이 나거나 예민하게 반응했다.","스트레스 때문에 잠들기 어렵거나 숙면을 취하지 못했다.","걱정이나 생각이 많아 일에 집중하기 어려웠다.","목이나 어깨 등에 긴장감이나 신체적 피로를 자주 느꼈다.","문제가 생겼을 때 해결할 여유나 에너지가 부족하다고 느꼈다.","휴식을 취해도 스트레스가 쉽게 해소되지 않았다."];
+const C=["전혀 없었다","거의 없었다","가끔 있었다","자주 있었다","거의 항상 있었다"];
+const form=document.getElementById('testForm'),submit=document.getElementById('submitBtn');
+form.insertAdjacentHTML('afterbegin',Q.map((q,i)=>'<section class="question"><h3><b>Q'+(i+1)+'</b>'+q+'</h3><div class="choices">'+C.map((c,v)=>'<label><input type="radio" name="q'+(i+1)+'" value="'+v+'"><span>'+(v+1)+'. '+c+'</span></label>').join('')+'</div></section>').join(''));
+function update(){let n=0;for(let i=1;i<=10;i++)if(form.querySelector('input[name="q'+i+'"]:checked'))n++;
+document.getElementById('progressText').textContent=n+' / 10개 완료';
+const b=document.getElementById('progressBar');b.style.width=(n*10)+'%';b.setAttribute('aria-valuenow',n*10);
+document.getElementById('progressHint').textContent=n===10?'모든 문항에 답했어요. 결과를 확인해 보세요.':(10-n)+'개 문항이 남았어요.';}
+form.addEventListener('change',function(e){update();const q=e.target.closest('.question');if(!q)return;setTimeout(function(){const next=q.nextElementSibling;if(next&&next.classList.contains('question')){if(!next.querySelector('input:checked'))next.scrollIntoView({behavior:'smooth',block:'center'});}else if(form.querySelectorAll('input:checked').length===10){submit.scrollIntoView({behavior:'smooth',block:'center'});}},250);});
+submit.addEventListener('click',function(){let t=0;for(let i=1;i<=10;i++){const p=form.querySelector('input[name="q'+i+'"]:checked');if(!p){alert('아직 답하지 않은 문항이 있어요. 10개 문항에 모두 답해 주세요.');form.querySelector('input[name="q'+i+'"]').closest('.question').scrollIntoView({behavior:'smooth',block:'center'});return;}t+=Number(p.value);}
+const lv=t<=10?'낮은 편':t<=20?'보통 수준':t<=30?'높은 편':'매우 높은 편';
+const ds=t<=10?'현재 스트레스 경험이 비교적 적은 편입니다. 충분한 휴식과 생활 리듬을 유지해 보세요.':t<=20?'일상에서 어느 정도 스트레스를 경험하는 상태일 수 있습니다. 스트레스 요인을 파악하고 휴식 시간을 확보해 보세요.':t<=30?'스트레스가 일상에 영향을 주고 있을 가능성이 있습니다. 부담 요인을 줄이고 주변 사람과 이야기하거나 회복 시간을 마련해 보세요.':'스트레스 부담이 상당히 크게 느껴질 수 있습니다. 혼자 감당하기보다 믿을 만한 사람이나 전문가에게 도움을 요청해 보세요.';
+document.getElementById('score').textContent=t;document.getElementById('level').textContent=lv;document.getElementById('description').textContent=ds;document.getElementById('resultBar').style.width=(t/40*100)+'%';
+document.getElementById('help').classList.toggle('show',t>=31);const r=document.getElementById('result');r.classList.add('show');r.scrollIntoView({behavior:'smooth'});});
+document.getElementById('retry').addEventListener('click',function(){form.reset();update();document.getElementById('result').classList.remove('show');document.getElementById('test').scrollIntoView({behavior:'smooth'});});
+</script></body></html>
